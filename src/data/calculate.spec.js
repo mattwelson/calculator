@@ -100,6 +100,21 @@ describe ('calculate()', () => {
       })
     })
 
+    it ('handles - operation if next is null and total 0', () => {
+      const state = {
+        total: 0,
+        next: null,
+        operation: null
+      }
+      const newState = calculate(state, '-')
+      expect(newState).toEqual({
+        next: '-'
+      })
+      expect(calculate(newState, '9')).toEqual({
+        next: '-9'
+      })
+    })
+
     it ('handles + operation', () => {
       const state = {
         total: 50,

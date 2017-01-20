@@ -60,12 +60,13 @@ export const calculate = (state, op) => {
       return {
         next: `${ state.next }.`
       }
+    case '-':
+      if (!state.next && state.total === 0) return { next: '-'}
     case '%':
     case '/':
     case '÷':
     case 'x':
     case '*':
-    case '-':
     case '+':
       if (!state.next) {
         return { operation: op }

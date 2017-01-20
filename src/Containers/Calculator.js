@@ -16,8 +16,12 @@ class Calculator extends Component {
     this.setState(calculate(this.state, value))
   }
 
+  handleKey = (e) => {
+    console.log({e})
+  }
+
   render = () => (
-    <div className="calc">
+    <div className="calc" onKeyUp={this.handleKey}>
       <Display>{ this.state.next || this.state.total }</Display>
       <ButtonPanel handleClick={ this.handleClick } />
     </div>
