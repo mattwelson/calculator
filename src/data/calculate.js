@@ -1,3 +1,5 @@
+/* eslint no-fallthrough: ["off", { "commentPattern": "break[\\s\\w]*ommitted" }] */
+
 const newObject = {
   total: 0,
   next: null,
@@ -62,6 +64,7 @@ export const calculate = (state, op) => {
       }
     case '-':
       if (!state.next && state.total === 0) return { next: '-'}
+      // caution: break ommitted intentionally
     case '%':
     case '/':
     case '÷':
